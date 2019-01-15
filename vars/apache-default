@@ -1,0 +1,11 @@
+{
+
+	"HTTP_PATH": { 
+		"function": "lliurex.variables.http_path.init",
+		"packages": [
+			"n4d-apache"
+		],
+		"description": "set the path to http sites", 
+		"value": null
+	}
+}

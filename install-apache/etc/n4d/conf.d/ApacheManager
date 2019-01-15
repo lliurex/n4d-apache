@@ -1,0 +1,10 @@
+[SETUP]
+type=python
+path=ApacheManager.py
+class=ApacheManager
+[METHODS]
+test=*,anonymous
+backup=adm,admins
+restore=adm,admins
+reboot_apache=adm,admins
+load_exports=adm,admins

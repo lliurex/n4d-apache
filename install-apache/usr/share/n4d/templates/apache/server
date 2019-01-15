@@ -1,0 +1,5 @@
+<virtualHost *:80>
+	ServerName server
+	ServerAlias srv servidor {% if  HOSTNAME  != "server" %}{{ HOSTNAME }}{% endif %}
+	DocumentRoot /var/www/srv
+</virtualHost>

@@ -1,0 +1,12 @@
+#!/usr/bin/env python
+
+import xmlrpclib
+
+server="localhost"
+user="lliurex"
+password="lliurex"
+
+c=xmlrpclib.ServerApache("https://"+server+":9779")
+user=(user,password)
+#print c.get_methods('ApacheManager')
+print c.load_exports(user,"ApacheManager")
