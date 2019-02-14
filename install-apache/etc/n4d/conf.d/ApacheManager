@@ -4,7 +4,7 @@ path=ApacheManager.py
 class=ApacheManager
 [METHODS]
 test=*,anonymous
-backup=adm,admins
-restore=adm,admins
-reboot_apache=adm,admins
-load_exports=adm,admins
+backup=sudo,admins
+restore=sudo,admins
+reboot_apache=sudo,admins
+load_exports=sudo,admins
