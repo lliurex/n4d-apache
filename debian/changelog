@@ -1,3 +1,9 @@
+n4d-apache (0.46) bionic; urgency=medium
+
+  * Fixed backup of easy-sites
+
+ -- Juan Ramon Pelegrina <juapesai@hotmail.com>  Tue, 02 Jul 2019 13:37:44 +0200
+
 n4d-apache (0.45) bionic; urgency=medium
 
   * Adding sudo group
