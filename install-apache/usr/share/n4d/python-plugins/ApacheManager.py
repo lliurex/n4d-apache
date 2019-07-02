@@ -19,7 +19,7 @@ class ApacheManager:
 		#Load template file
 		self.tpl_env = Environment(loader=FileSystemLoader('/usr/share/n4d/templates/apache'))
 		self.backup_files=[]
-		self.backup_dirs=["/etc/apache2/","/var/www/","/net/server-sync/easy-sites"]
+		self.backup_dirs=["/etc/apache2/","/etc/easysites/","/var/www/","/net/server-sync/easy-sites"]
 
 	#def init
 	
@@ -72,6 +72,16 @@ class ApacheManager:
 			for j in self.list_easy_sites:
 				if os.path.exists(j):
 					tar.add(j)
+
+			self.list_easy_site_hide=glob.glob("/var/www/srv/links/hide_links/easy-*")
+			for j in self.list_easy_site_hide:
+				if os.path.exists(j):
+					tar.add(j)	
+					
+			self.list_easy_site_icons=glob.glob("/var/www/srv/icons/easy-*")
+			for j in self.list_easy_site_icons:
+				if os.path.exists(j):
+					tar.add(j)				
 			
 			dir="/net/server-sync/easy-sites"
 			if os.path.exists(dir):
