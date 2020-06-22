@@ -1,3 +1,9 @@
+n4d-apache (0.47) bionic; urgency=medium
+
+  * Add lliurex-location
+
+ -- Raul Rodrigo Segura <raurodse@gmail.com>  Mon, 22 Jun 2020 15:12:24 +0200
+
 n4d-apache (0.46) bionic; urgency=medium
 
   * Fixed backup of easy-sites
