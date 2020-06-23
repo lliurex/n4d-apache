@@ -1,4 +1,4 @@
-n4d-apache (0.47.1) bionic ; urgency=medium
+n4d-apache (0.47.1) bionic; urgency=medium
 
   * Fix load lliurex-location configs
 
