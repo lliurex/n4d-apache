@@ -69,14 +69,14 @@ class ApacheManager:
 				if os.path.exists(d):
 					tar.add(d)
 			
-			#self.list_easy_sites = glob.glob('/var/www/srv/'+'easy-'+'*') + glob.glob("/var/www/srv/links/easy-*")
-			self.list_easy_sites = glob.glob('/var/www/easy-sites/'+'easy-'+'*')
-
+			'''
+			self.list_easy_sites = glob.glob('/var/www/srv/'+'easy-'+'*') + glob.glob("/var/www/srv/links/easy-*")
+			
 			for j in self.list_easy_sites:
 				if os.path.exists(j):
 					tar.add(j)
 
-			'''
+			
 			self.list_easy_site_hide=glob.glob("/var/www/srv/links/hide_links/easy-*")
 			for j in self.list_easy_site_hide:
 				if os.path.exists(j):
@@ -87,15 +87,17 @@ class ApacheManager:
 				if os.path.exists(j):
 					tar.add(j)				
 			'''
-			easy_links=glob.glob(self.easysites_dirs[0]+'easy-'+'*')
-			for j in easy_links:
-				if os.path.exists(j):
-					tar.add(j)
+			if os.path.exists(self.easysites_dirs[0]):
+				easy_links=glob.glob(self.easysites_dirs[0]+'easy-'+'*')
+				for j in easy_links:
+					if os.path.exists(j):
+						tar.add(j)
 			
-			easy_icons=glob.glob(self.easysites_dirs[1]+'easy-'+'*')
-			for j in easy_icons:
-				if os.path.exists(j):
-					tar.add(j)			
+			if os.path.exists(self.easysites_dirs[1]):
+				easy_icons=glob.glob(self.easysites_dirs[1]+'easy-'+'*')
+				for j in easy_icons:
+					if os.path.exists(j):
+						tar.add(j)			
 			
 			dir="/net/server-sync/easy-sites"
 			if os.path.exists(dir):
