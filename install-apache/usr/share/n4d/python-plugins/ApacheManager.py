@@ -20,6 +20,7 @@ class ApacheManager:
 		self.tpl_env = Environment(loader=FileSystemLoader('/usr/share/n4d/templates/apache'))
 		self.backup_files=[]
 		self.backup_dirs=["/etc/apache2/","/etc/easysites/","/var/www/","/net/server-sync/easy-sites"]
+		self.easysites_dirs=["/var/lib/lliurex-www/links/","/usr/share/lliurex-www/srv/icons/"]
 
 	#def init
 	
@@ -68,11 +69,14 @@ class ApacheManager:
 				if os.path.exists(d):
 					tar.add(d)
 			
+			'''
 			self.list_easy_sites = glob.glob('/var/www/srv/'+'easy-'+'*') + glob.glob("/var/www/srv/links/easy-*")
+			
 			for j in self.list_easy_sites:
 				if os.path.exists(j):
 					tar.add(j)
 
+			
 			self.list_easy_site_hide=glob.glob("/var/www/srv/links/hide_links/easy-*")
 			for j in self.list_easy_site_hide:
 				if os.path.exists(j):
@@ -82,6 +86,18 @@ class ApacheManager:
 			for j in self.list_easy_site_icons:
 				if os.path.exists(j):
 					tar.add(j)				
+			'''
+			if os.path.exists(self.easysites_dirs[0]):
+				easy_links=glob.glob(self.easysites_dirs[0]+'easy-'+'*')
+				for j in easy_links:
+					if os.path.exists(j):
+						tar.add(j)
+			
+			if os.path.exists(self.easysites_dirs[1]):
+				easy_icons=glob.glob(self.easysites_dirs[1]+'easy-'+'*')
+				for j in easy_icons:
+					if os.path.exists(j):
+						tar.add(j)			
 			
 			dir="/net/server-sync/easy-sites"
 			if os.path.exists(dir):
@@ -155,7 +171,22 @@ class ApacheManager:
 						self.makedir(d)
 						cmd="cp -r " + tmp_path +"/* "  + d
 						os.system(cmd)
-						
+
+				try:
+					for d in self.easysites_dirs:
+						tmp_path=tmp_dir+d
+						tmp_files=glob.glob(tmp_path+'easy-'+'*')
+						for file in tmp_files:
+							if os.path.exists(file):
+								cmd="cp "+file+" "+d
+								os.system(cmd)
+								if os.path.exists(os.path.join(d,os.path.basename(file))):
+									if 'lib/lliurex-www/links' in os.path.join(d,os.path.basename(file)):
+										cmd="chown www-data:www-data "+ os.path.join(d,os.path.basename(file))
+										os.system(cmd)
+				
+				except:
+					pass						
 				#Add pmb redirection to port 800 (apache2-lliurex)
 				sw_loadProxyMods=False
 				for confFile in ["/etc/apache2/sites-enabled/pmb.conf","/etc/apache2/sites-enabled/opac.conf"]:
