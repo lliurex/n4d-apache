@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 # npackage example  https://svn.lliurex.net/pandora/n4d-ldap/trunk
 # jinja2 http://jinja.pocoo.org/docs/templates
 
@@ -11,12 +12,17 @@ import subprocess
 import tarfile
 import time
 import glob
+import n4d.server.core as n4dcore
+import n4d.responses
+from n4d.utils import get_backup_name, n4d_mv
+
 
 
 class ApacheManager:
 
 	def __init__(self):
 		#Load template file
+		self.core=n4dcore.Core.get_core()
 		self.tpl_env = Environment(loader=FileSystemLoader('/usr/share/n4d/templates/apache'))
 		self.backup_files=[]
 		self.backup_dirs=["/etc/apache2/","/etc/easysites/","/var/www/","/net/server-sync/easy-sites"]
@@ -112,10 +118,14 @@ class ApacheManager:
 			tar.add("/tmp/mods_available",arcname="llx-backup_mods_available")
 			tar.close()
 
-			return [True,file_path]
+			#Old n4d: return [True,file_path]
+			return n4d.responses.build_successful_call_response(file_path)
+
 
 		except Exception as e:
-			return [False,str(e)]
+			#Old n4d: return [False,str(e)]
+			return n4d.responses.build_failed_call_response(str(e))
+
 
 	#def restore backup
 	def restore(self,file_path=None):
@@ -141,14 +151,15 @@ class ApacheManager:
 				
 
 				try:
-					if objects["ServerBackupManager"].restoring_version=="14.06":
+					#Old n4d:if objects["ServerBackupManager"].restoring_version=="14.06":
+					if self.core.get_plugin("ServerBackupManager").restoring_version=="14.06":
 						
-						print "[ApacheManager] Removing old apache conf files..."
+						print("[ApacheManager] Removing old apache conf files...")
 						
 						files_to_remove=["/etc/apache2/apache2.conf","/etc/apache2/envvars","/etc/apache2/magic","/etc/apache2/ports.conf","/etc/apache2/httpd.conf","/var/www/index.html"]
 						
 						for f in files_to_remove:
-							print tmp_dir+f,os.path.exists(tmp_dir+f)
+							print(tmp_dir+f,os.path.exists(tmp_dir+f))
 							if os.path.exists(tmp_dir+f):
 								os.remove(tmp_dir+f)
 						os.system("rm -rf %s"%tmp_dir+"/etc/apache2/conf.d")
@@ -156,7 +167,7 @@ class ApacheManager:
 						
 						
 				except Exception as llx1406e:
-					print llx1406e
+					print(str(llx1406e))
 			
 
 
@@ -226,7 +237,9 @@ class ApacheManager:
 				# # 14.06 -> 15.05 CASE #############################
 				
 				try:
-					if objects["ServerBackupManager"].restoring_version=="14.06":
+					#Old n4d: if objects["ServerBackupManager"].restoring_version=="14.06":
+					if self.core.get_plugin("ServerBackupManager").restoring_version=="14.06":
+
 						
 						print("[ApacheManager] Fixing files ...")
 						
@@ -253,7 +266,7 @@ class ApacheManager:
 							elif not f.endswith(".conf"):
 								shutil.move(path,path+".conf")
 
-						print dir,"DONE"
+						print(dir,"DONE")
 
 						dir="/etc/apache2/sites-enabled/"
 						files=[]
@@ -294,20 +307,26 @@ class ApacheManager:
 								
 						
 				except Exception as llx14_ex:
-					print llx14_ex
+					print(str(llx14_ex))
 					
 				# #END OF 14.06->15.05 CASE # ############
 				
 				os.system("service apache2 restart")
+				
+				#Old n4d: return [True,""]
+				return n4d.responses.build_successful_call_response()
 
-                                return [True,""]
 
 			else:
-				return [False,"Backup file not found"]
+				#Old n4d:return [False,"Backup file not found"]
+				return n4d.responses.build_failed_call_response("Backup file not found")
+
 
 		except Exception as e:
 
-			return [False,str(e)]
+			#Old n4d: return [False,str(e)]
+			return n4d.responses.build_failed_call_response(str(e))
+
 
 
 	#def restore
@@ -318,29 +337,45 @@ class ApacheManager:
 		list_variables = {}
 		
 		#Inicialize INTERNAL_DOMAIN
-		list_variables['INTERNAL_DOMAIN'] = objects['VariablesManager'].get_variable('INTERNAL_DOMAIN')
+		#Old n4d: list_variables['INTERNAL_DOMAIN'] = objects['VariablesManager'].get_variable('INTERNAL_DOMAIN')
+		list_variables['INTERNAL_DOMAIN']=self.core.get_variable('INTERNAL_DOMAIN')["return"]
+		
 		#If INT_DOMAIN is not defined calculate it with args values
 		if  list_variables['INTERNAL_DOMAIN'] == None:
-			return {'status':False,'msg':'Variable INTERNAL_DOMAIN not defined'}
+			#Old n4d: return {'status':False,'msg':'Variable INTERNAL_DOMAIN not defined'}
+			return n4d.responses.build_failed_call_response('Variable INTERNAL_DOMAIN not defined')
 		
 		#Inicialize INTERNAL_DOMAIN
-		list_variables['HOSTNAME'] = objects['VariablesManager'].get_variable('HOSTNAME')
+		#Old n4d: list_variables['HOSTNAME'] = objects['VariablesManager'].get_variable('HOSTNAME')
+		list_variables['HOSTNAME']=self.core.get_variable('HOSTNAME')['return']
+		
 		#If INT_DOMAIN is not defined calculate it with args values
 		if  list_variables['HOSTNAME'] == None:
-			return {'status':False,'msg':'Variable HOSTNAME not defined'}
+			#Old n4d: return {'status':False,'msg':'Variable HOSTNAME not defined'}
+			return n4d.responses.build_failed_call_response('Variable HOSTNAME not defined')
 		
 		###########################
 		#Setting VARS
 		###########################
 		
 		#Set HTTP_PATH 
-		list_variables['HTTP_PATH'] = objects['VariablesManager'].get_variable('HTTP_PATH')
+		#Old n4d: list_variables['HTTP_PATH'] = objects['VariablesManager'].get_variable('HTTP_PATH')
+		list_variables['HTTP_PATH']=self.core.get_variable('HTTP_PATH')["return"]
+
 		#If variable PROXY_ENABLED is not defined calculate it with args values
 		if  list_variables['HTTP_PATH'] == None:
-			status,list_variables['HTTP_PATH'] = objects['VariablesManager'].init_variable('HTTP_PATH',{'PATH':'/var/www/'})
-		
+			#Old n4d: status,list_variables['HTTP_PATH'] = objects['VariablesManager'].init_variable('HTTP_PATH',{'PATH':'/var/www/'})
+			ret=self.core.set_variable('HTTP_PATH','/var/www/')
+			list_variables['HTTP_PATH']=ret['return']
+			if ret['status']==0:
+				status=True
+			else:
+				status=False
+
 		#Encode vars to UTF-8
-		string_template = template_server.render(list_variables).encode('UTF-8')
+		#Old n4d: string_template = template_server.render(list_variables).encode('UTF-8')
+		string_template = template_server.render(list_variables)
+		
 		#Open template file
 		fd, tmpfilepath = tempfile.mkstemp()
 		new_export_file = open(tmpfilepath,'w')
@@ -352,14 +387,19 @@ class ApacheManager:
 		#Restart service
 		subprocess.Popen(['a2ensite','server.conf'],stdout=subprocess.PIPE).communicate()
 		subprocess.Popen(['/etc/init.d/apache2','reload'],stdout=subprocess.PIPE).communicate()
-		return {'status':True,'msg':'Exports written'}
+		#Old n4d: return {'status':True,'msg':'Exports written'}
+		return n4d.responses.build_successful_call_response('Exports written')
+
 	#def load_exports
 
 	def reboot_apache(self):
 		#Restart apache service
 		subprocess.Popen(['/etc/init.d/apache2','restart'],stdout=subprocess.PIPE).communicate()
-		return {'status':True,'msg':'apache2 rebooted'}
+		#Old n4d: return {'status':True,'msg':'apache2 rebooted'}
+		return n4d.responses.build_successful_call_response('apache2 rebooted')
+
 	#def reboot_squid
+	
 
 	# ######################### #
 	

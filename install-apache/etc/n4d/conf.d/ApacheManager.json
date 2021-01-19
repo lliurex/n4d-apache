@@ -1,0 +1,39 @@
+{
+    "SETUP": {
+        "type": "python",
+        "path": "ApacheManager.py",
+        "class": "ApacheManager"
+    },
+    "METHODS": {
+        "test": {
+            "allowed_groups": [
+                "*",
+                "anonymous"
+            ]
+        },
+        "backup": {
+            "allowed_groups": [
+                "sudo",
+                "admins"
+            ]
+        },
+        "restore": {
+            "allowed_groups": [
+                "sudo",
+                "admins"
+            ]
+        },
+        "load_exports": {
+            "allowed_groups": [
+                "sudo",
+                "admins"
+            ]
+        },
+        "reboot_apache": {
+            "allowed_groups": [
+                "sudo",
+                "admins"
+            ]
+        }
+    }
+}
