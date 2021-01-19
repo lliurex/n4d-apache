@@ -383,7 +383,7 @@ class ApacheManager:
 		new_export_file.close()
 		os.close(fd)
 		#Write template values
-		n4d_mv(tmpfilepath,'/etc/apache2/sites-available/server',True,'root','root','0644',False )
+		n4d_mv(tmpfilepath,'/etc/apache2/sites-available/server.conf',True,'root','root','0644',False )
 		#Restart service
 		subprocess.Popen(['a2ensite','server.conf'],stdout=subprocess.PIPE).communicate()
 		subprocess.Popen(['/etc/init.d/apache2','reload'],stdout=subprocess.PIPE).communicate()
