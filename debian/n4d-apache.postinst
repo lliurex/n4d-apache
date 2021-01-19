@@ -37,7 +37,7 @@ case $1 in
 
 		        . /usr/share/apache2/apache2-maintscript-helper
                 	apache2_invoke enconf n4d-apache.conf
-			apache2_invoke enmod php7.2
+			apache2_invoke enmod php7.4
 		fi
 
 		systemctl restart apache2
