@@ -1,0 +1,364 @@
+n4d-apache (0.47.2) bionic; urgency=medium
+
+  * Fixed easy-sites backup
+  
+ -- Juan Ramon Pelegrina <juapesai@hotmail.com>  Thu, 22 Oct 2020 12:37:26 +0200
+
+n4d-apache (0.47.1) bionic; urgency=medium
+
+  * Fix load lliurex-location configs
+
+ -- Raul Rodrigo Segura <raurodse@gmail.com>  Tue, 23 Jun 2020 08:53:35 +0200
+
+n4d-apache (0.47) bionic; urgency=medium
+
+  * Add lliurex-location
+
+ -- Raul Rodrigo Segura <raurodse@gmail.com>  Mon, 22 Jun 2020 15:12:24 +0200
+
+n4d-apache (0.46) bionic; urgency=medium
+
+  * Fixed backup of easy-sites
+
+ -- Juan Ramon Pelegrina <juapesai@hotmail.com>  Tue, 02 Jul 2019 13:37:44 +0200
+
+n4d-apache (0.45) bionic; urgency=medium
+
+  * Adding sudo group
+
+ -- Juan Ramon Pelegrina <juapesai@hotmail.com>  Thu, 14 Feb 2019 09:55:13 +0100
+
+n4d-apache (0.44) bionic; urgency=medium
+
+  * First bionic release
+
+ -- Hector Garcia Huerta <hectorgh@gmail.com>  Thu, 26 Apr 2018 09:22:03 +0200
+
+n4d-apache (0.43.6) xenial; urgency=medium
+
+  * Add allowoverride to admin-center
+
+ -- Raul Rodrigo Segura <raurodse@gmail.com>  Wed, 10 Jan 2018 17:54:08 +0100
+
+n4d-apache (0.43.5) xenial; urgency=medium
+
+  * Fix redirections
+
+ -- Juanma Navarro Mañez <juanma1980@gmail.com>  Tue, 27 Jun 2017 12:03:44 +0200
+
+n4d-apache (0.43.4) xenial; urgency=medium
+
+  * Ensure that proxy mods are enabled if pmb is in the backup
+
+ -- Juanma Navarro Mañez <juanma1980@gmail.com>  Wed, 21 Jun 2017 12:13:05 +0200
+
+n4d-apache (0.43.3) xenial; urgency=medium
+
+  * Add redirect to port 800 in conf files of pmb and opac when restoring a backup <=15
+
+ -- Juanma Navarro Mañez <juanma1980@gmail.com>  Tue, 20 Jun 2017 12:27:36 +0200
+
+n4d-apache (0.43.2) xenial; urgency=high
+
+  * Adding possible ssl conf
+
+ -- Hector Garcia Huerta <hectorgh@gmail.com>  Wed, 16 Nov 2016 09:53:52 +0100
+
+n4d-apache (0.43.1) xenial; urgency=high
+
+  * Fixed postinst
+
+ -- Hector Garcia Huerta <hectorgh@gmail.com>  Thu, 07 Apr 2016 17:39:39 +0200
+
+n4d-apache (0.43) xenial; urgency=high
+
+  * Updating dependencies
+
+ -- Hector Garcia Huerta <hectorgh@gmail.com>  Thu, 07 Apr 2016 16:29:03 +0200
+
+n4d-apache (0.42-lliurex2) xenial; urgency=medium
+
+  * 
+
+ -- M.Angel Juan <m.angel.juan@gmail.com>  Wed, 03 Feb 2016 13:27:02 +0100
+
+n4d-apache (0.42-lliurex1) xenial; urgency=medium
+
+  * Fix postinstall
+
+ -- M.Angel Juan <m.angel.juan@gmail.com>  Wed, 03 Feb 2016 12:14:59 +0100
+
+n4d-apache (0.42) xenial; urgency=high
+
+  * First xenial release
+
+ -- Hector Garcia Huerta <hectorgh@gmail.com>  Tue, 02 Feb 2016 15:51:28 +0100
+
+n4d-apache (0.41) trusty; urgency=medium
+
+  * Supporting 14.06 backups
+
+ -- Hector Garcia Huerta <hectorgh@gmail.com>  Tue, 14 Apr 2015 16:41:11 +0200
+
+n4d-apache (0.40) trusty; urgency=high
+
+  * changing service restart to invoke-rc.d restart
+
+ -- Hector Garcia Huerta <hectorgh@gmail.com>  Mon, 27 Oct 2014 11:24:16 +0100
+
+n4d-apache (0.39) trusty; urgency=high
+
+  * Fixed divert
+
+ -- Alfons Lloret Sananton <turix13@gmail.com>  Wed, 08 Oct 2014 13:27:44 +0200
+
+n4d-apache (0.38) trusty; urgency=high
+
+  * solved bugs
+  * fixed templated llx-default.conf
+
+ -- Alfons Lloret Sananton <turix13@gmail.com>  Wed, 08 Oct 2014 12:59:34 +0200
+
+n4d-apache (0.37) trusty; urgency=high
+
+  * fixed configuration apache 2.4
+
+ -- Alfons Lloret Sananton <turix13@gmail.com>  Wed, 08 Oct 2014 12:19:15 +0200
+
+n4d-apache (0.36) trusty; urgency=high
+
+  * Removed directory /var/www, it's not usefull. 
+  * Removed default template, it's not usefull, never!! 
+  * Modified postinst and prerm for new version apache 2.4.
+
+ -- Alfons Lloret Sananton <turix13@gmail.com>  Mon, 06 Oct 2014 13:42:13 +0200
+
+n4d-apache (0.35) trusty; urgency=high
+
+  * fixed syntax error. 
+
+ -- Alfons Lloret Sananton <turix13@gmail.com>  Mon, 06 Oct 2014 13:03:08 +0200
+
+n4d-apache (0.34) trusty; urgency=high
+
+  * Added new configuracion for apache 2.4 and solved bugs. 
+
+ -- Alfons Lloret Sananton <turix13@gmail.com>  Mon, 06 Oct 2014 10:10:53 +0200
+
+n4d-apache (0.33) trusty; urgency=high
+
+  * Solved bug in postinst and prerm, the symbolic link for share was duplicated
+
+ -- Alfons Lloret Sananton <turix13@gmail.com>  Fri, 03 Oct 2014 11:24:33 +0200
+
+n4d-apache (0.32) trusty; urgency=high
+
+  * Added copyright
+  * Upgraded control file, Standards-Version it's now 3.8.5 
+  * Fixed bug in divert configuration 
+
+ -- Alfons Lloret Sananton <turix13@gmail.com>  Thu, 02 Oct 2014 13:43:15 +0200
+
+n4d-apache (0.31) trusty; urgency=high
+
+  * Fixed depends
+
+ -- Alfons Lloret Sananton <turix13@gmail.com>  Tue, 30 Sep 2014 18:19:11 +0200
+
+n4d-apache (0.30) trusty; urgency=high
+
+  * Added python-minimal as build depends
+
+ -- Alfons Lloret Sananton <turix13@gmail.com>  Tue, 30 Sep 2014 17:05:30 +0200
+
+n4d-apache (0.29) trusty; urgency=high
+
+  * New releases for LliureX 15.06
+
+ --  Alfons Lloret Sananton <turix13@gmail.com>  Tue, 30 Sep 2014 14:11:36 +0200
+
+n4d-apache (0.28) precise; urgency=low
+
+  * Fixed Servername localhost warning 
+
+ -- David Montalva Furio <montalva_dav@gva.es>  Tue, 17 Sep 2013 10:14:14 +0200
+
+n4d-apache (0.27) precise; urgency=low
+
+  * Fixed share site 
+
+ -- David Montalva Furio <montalva_dav@gva.es>  Thu, 20 Jun 2013 17:30:14 +0200
+
+n4d-apache (0.26) precise; urgency=low
+
+  * Remove links creation to server site
+
+ -- David Montalva Furio <montalva_dav@gva.es>  Thu, 20 Jun 2013 09:49:46 +0200
+
+n4d-apache (0.25) precise; urgency=low
+
+  * Removed default site because it is in another package
+
+ -- David Montalva Furio <montalva_dav@gva.es>  Wed, 19 Jun 2013 23:29:34 +0200
+
+n4d-apache (0.24) precise; urgency=low
+
+  * Removed a2ensite server from postinstall
+
+ -- David Montalva Furio <montalva_dav@gva.es>  Wed, 19 Jun 2013 14:55:54 +0200
+
+n4d-apache (0.23) precise; urgency=low
+
+  * changed version
+
+ -- David Montalva Furio <montalva_dav@gva.es>  Wed, 19 Jun 2013 14:52:12 +0200
+
+n4d-apache (0.22) precise; urgency=low
+
+  * enabled server site
+
+ -- David Montalva Furio <montalva_dav@gva.es>  Wed, 19 Jun 2013 14:50:45 +0200
+
+n4d-apache (0.22) precise; urgency=low
+
+  * Fixed changelog 
+
+ -- David Montalva Furio <montalva_dav@gva.es>  Mon, 17 Jun 2013 14:44:40 +0200
+
+n4d-apache (0.21) precise; urgency=low
+
+  * Removed error page (gpg error)
+
+ -- Angel Berlanas Vicente <angel.berlanas@gmail.com>  Fri, 14 Jun 2013 14:05:41 +0200
+
+n4d-apache (0.20) precise; urgency=low
+
+  * Fixed changelog 
+
+ -- David Montalva Furio <montalva_dav@gva.es>  Thu, 13 Jun 2013 14:14:12 +0200
+
+n4d-apache (0.19) precise; urgency=low
+
+  * Fixed 404 error page 
+
+ -- David Montalva Furio <montalva_dav@gva.es>  Thu, 13 Jun 2013 11:18:43 +0200
+
+n4d-apache (0.18) precise; urgency=low
+
+  * Fixing to debian policy 
+
+ -- David Montalva Furio <montalva_dav@gva.es>  Wed, 12 Jun 2013 23:33:04 +0200
+
+n4d-apache (0.17) precise; urgency=low
+
+  * Fixed template error 
+
+ -- David Montalva Furio <montalva_dav@gva.es>  Fri, 07 Jun 2013 13:01:40 +0200
+
+n4d-apache (0.16) precise; urgency=low
+
+  * Added custom 404 page 
+
+ -- David Montalva Furio <montalva_dav@gva.es>  Fri, 07 Jun 2013 08:51:28 +0200
+
+n4d-apache (0.15) precise; urgency=low
+
+  * Fixed bugs 
+
+ -- David Montalva Furio <montalva_dav@gva.es>  Wed, 05 Jun 2013 13:41:56 +0200
+
+n4d-apache (0.14) precise; urgency=low
+
+  * Fixed bugs
+
+ -- David Montalva Furio <montalva_dav@gva.es>  Wed, 05 Jun 2013 13:27:19 +0200
+
+n4d-apache (0.13) precise; urgency=low
+
+  * Added alias 
+
+ -- David Montalva Furio <montalva_dav@gva.es>  Wed, 05 Jun 2013 08:56:03 +0200
+
+n4d-apache (0.12) precise; urgency=low
+
+  * Fixed apachemanager class 
+
+ -- David Montalva Furio <montalva_dav@gva.es>  Tue, 04 Jun 2013 12:55:43 +0200
+
+n4d-apache (0.11) precise; urgency=low
+
+  *  Fixed changelog
+
+ -- David Montalva Furio <montalva_dav@gva.es>  Tue, 04 Jun 2013 09:55:20 +0200
+
+n4d-apache (0.10) precise; urgency=low
+
+  * Added server alias 
+
+ -- David Montalva Furio <montalva_dav@gva.es>  Mon, 03 Jun 2013 22:28:44 +0200
+
+n4d-apache (0.09) precise; urgency=low
+
+  * New theme for server page 
+
+ -- David Montalva Furio <montalva_dav@gva.es>  Mon, 03 Jun 2013 09:54:17 +0200
+
+n4d-apache (0.08) precise; urgency=low
+
+  * added php5 mod  
+
+ -- David Montalva Furio <montalva_dav@gva.es>  Fri, 10 May 2013 12:45:12 +0200
+
+n4d-apache (0.07) precise; urgency=low
+
+  * Added default site 
+
+ -- David Montalva Furio <montalva_dav@gva.es>  Fri, 10 May 2013 11:43:22 +0200
+
+n4d-apache (0.06) precise; urgency=low
+
+  * UNRELEASED
+
+ -- Hector Garcia Huerta <cless@anubis.lliurex.fs>  Thu, 09 May 2013 12:40:38 +0200
+
+n4d-apache (0.05) precise; urgency=low
+
+  * Fixed postinst
+
+ -- Hector Garcia Huerta <cless@anubis.lliurex.fs>  Thu, 09 May 2013 12:38:56 +0200
+
+n4d-apache (0.04) precise; urgency=low
+
+  * enable ldap module 
+
+ -- David Montalva Furio <montalva_dav@gva.es>  Wed, 08 May 2013 14:37:35 +0200
+
+n4d-apache (0.03) precise; urgency=low
+
+  * Fixed version 
+
+ -- David Montalva Furio <montalva_dav@gva.es>  Wed, 08 May 2013 11:23:20 +0200
+
+n4d-apache (0.02ubuntu1) precise; urgency=low
+
+  * Added php5-ldap module 
+
+ -- David Montalva Furio <montalva_dav@gva.es>  Wed, 08 May 2013 11:05:54 +0200
+
+n4d-apache (0.02) precise; urgency=low
+
+  * Fixed postinstall 
+
+ -- David Montalva Furio <montalva_dav@gva.es>  Wed, 08 May 2013 09:40:10 +0200
+
+n4d-apache (0.01ubuntu1) precise; urgency=low
+
+  * Added http_path var 
+
+ -- David Montalva Furio <montalva_dav@gva.es>  Tue, 07 May 2013 15:00:16 +0200
+
+n4d-apache (0.01) precise; urgency=low
+
+  * Initial release.
+
+ -- David Montalva Furio <montalva_dav@gva.es>  Tue, 07 May 2013 13:39:11 +0200
