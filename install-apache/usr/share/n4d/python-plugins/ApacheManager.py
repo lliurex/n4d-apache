@@ -124,7 +124,7 @@ class ApacheManager:
 
 		except Exception as e:
 			#Old n4d: return [False,str(e)]
-			return n4d.responses.build_failed_call_response(str(e))
+			return n4d.responses.build_failed_call_response('',str(e))
 
 
 	#def restore backup
@@ -314,18 +314,18 @@ class ApacheManager:
 				os.system("service apache2 restart")
 				
 				#Old n4d: return [True,""]
-				return n4d.responses.build_successful_call_response()
+				return n4d.responses.build_successful_call_response(True)
 
 
 			else:
 				#Old n4d:return [False,"Backup file not found"]
-				return n4d.responses.build_failed_call_response("Backup file not found")
+				return n4d.responses.build_successful_call_response(False,"Backup file not found")
 
 
 		except Exception as e:
 
 			#Old n4d: return [False,str(e)]
-			return n4d.responses.build_failed_call_response(str(e))
+			return n4d.responses.build_failed_call_response('',str(e))
 
 
 
@@ -343,7 +343,7 @@ class ApacheManager:
 		#If INT_DOMAIN is not defined calculate it with args values
 		if  list_variables['INTERNAL_DOMAIN'] == None:
 			#Old n4d: return {'status':False,'msg':'Variable INTERNAL_DOMAIN not defined'}
-			return n4d.responses.build_failed_call_response('Variable INTERNAL_DOMAIN not defined')
+			return n4d.responses.build_failed_call_response('','Variable INTERNAL_DOMAIN not defined')
 		
 		#Inicialize INTERNAL_DOMAIN
 		#Old n4d: list_variables['HOSTNAME'] = objects['VariablesManager'].get_variable('HOSTNAME')
@@ -352,7 +352,7 @@ class ApacheManager:
 		#If INT_DOMAIN is not defined calculate it with args values
 		if  list_variables['HOSTNAME'] == None:
 			#Old n4d: return {'status':False,'msg':'Variable HOSTNAME not defined'}
-			return n4d.responses.build_failed_call_response('Variable HOSTNAME not defined')
+			return n4d.responses.build_failed_call_response('','Variable HOSTNAME not defined')
 		
 		###########################
 		#Setting VARS
@@ -388,7 +388,7 @@ class ApacheManager:
 		subprocess.Popen(['a2ensite','server.conf'],stdout=subprocess.PIPE).communicate()
 		subprocess.Popen(['/etc/init.d/apache2','reload'],stdout=subprocess.PIPE).communicate()
 		#Old n4d: return {'status':True,'msg':'Exports written'}
-		return n4d.responses.build_successful_call_response('Exports written')
+		return n4d.responses.build_successful_call_response('','Exports written')
 
 	#def load_exports
 
@@ -396,7 +396,7 @@ class ApacheManager:
 		#Restart apache service
 		subprocess.Popen(['/etc/init.d/apache2','restart'],stdout=subprocess.PIPE).communicate()
 		#Old n4d: return {'status':True,'msg':'apache2 rebooted'}
-		return n4d.responses.build_successful_call_response('apache2 rebooted')
+		return n4d.responses.build_successful_call_response('','apache2 rebooted')
 
 	#def reboot_squid
 	
