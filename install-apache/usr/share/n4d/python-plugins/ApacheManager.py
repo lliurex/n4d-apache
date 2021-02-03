@@ -338,7 +338,7 @@ class ApacheManager:
 		
 		#Inicialize INTERNAL_DOMAIN
 		#Old n4d: list_variables['INTERNAL_DOMAIN'] = objects['VariablesManager'].get_variable('INTERNAL_DOMAIN')
-		list_variables['INTERNAL_DOMAIN']=self.core.get_variable('INTERNAL_DOMAIN')["return"]
+		list_variables['INTERNAL_DOMAIN']=self.core.get_variable('INTERNAL_DOMAIN').get('return',None)
 		
 		#If INT_DOMAIN is not defined calculate it with args values
 		if  list_variables['INTERNAL_DOMAIN'] == None:
@@ -347,7 +347,7 @@ class ApacheManager:
 		
 		#Inicialize INTERNAL_DOMAIN
 		#Old n4d: list_variables['HOSTNAME'] = objects['VariablesManager'].get_variable('HOSTNAME')
-		list_variables['HOSTNAME']=self.core.get_variable('HOSTNAME')['return']
+		list_variables['HOSTNAME']=self.core.get_variable('HOSTNAME').get('return',None)
 		
 		#If INT_DOMAIN is not defined calculate it with args values
 		if  list_variables['HOSTNAME'] == None:
@@ -360,7 +360,7 @@ class ApacheManager:
 		
 		#Set HTTP_PATH 
 		#Old n4d: list_variables['HTTP_PATH'] = objects['VariablesManager'].get_variable('HTTP_PATH')
-		list_variables['HTTP_PATH']=self.core.get_variable('HTTP_PATH')["return"]
+		list_variables['HTTP_PATH']=self.core.get_variable('HTTP_PATH').get('return',None)
 
 		#If variable PROXY_ENABLED is not defined calculate it with args values
 		if  list_variables['HTTP_PATH'] == None:
