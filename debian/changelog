@@ -1,3 +1,9 @@
+n4d-apache (0.57) focal; urgency=medium
+
+  * Initial release for focal
+
+ -- Juan Ramon Pelegrina <juapesai@hotmail.com>  Mon, 08 Feb 2021 11:57:17 +0100
+
 n4d-apache (0.47.2) bionic; urgency=medium
 
   * Fixed easy-sites backup
