@@ -12,6 +12,8 @@ SYM_LINK="/var/www/share"
 
 case $1 in
         configure)
+
+		n4d-modules enable-plugin /etc/n4d/conf.d/AmacheManager.json || true
 		
 		if [ ! -r ${DIVERT_FILE} ] ; then 
 

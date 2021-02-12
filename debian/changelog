@@ -1,3 +1,9 @@
+n4d-apache (0.57.2) focal; urgency=medium
+
+  * Adding n4d-modules in postinst
+
+ -- Hector Garcia Huerta <hectorgh@gmail.com>  Fri, 12 Feb 2021 14:21:13 +0100
+
 n4d-apache (0.57.1) focal; urgency=medium
 
   * Removed depend python-llxvars
