@@ -1,0 +1,13 @@
+Source: n4d-apache
+Section: admin
+Priority: optional
+Maintainer: Equipo LliureX <lliurex@gva.es>
+Build-Depends: debhelper (>= 10), n4d-dev
+Standards-Version: 4.1.2
+
+Package: n4d-apache
+Depends: ${shlibs:Depends}, ${misc:Depends}, python3-jinja2, apache2 | httpd, libapache2-mod-php7.4, php7.4-ldap 
+Architecture: all
+Description: LliureX apache2 server configuration
+ This package installs apache2 server configuration for
+ LliureX classrooms environment
