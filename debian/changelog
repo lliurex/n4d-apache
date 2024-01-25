@@ -1,3 +1,9 @@
+n4d-apache (0.67.4) jammy; urgency=medium
+
+  * Fixed enmod 
+
+ -- Hector Garcia Huerta <hectorgh@gmail.com>  Thu, 25 Jan 2024 09:09:36 +0100
+
 n4d-apache (0.67.3) jammy; urgency=medium
 
   * Changing dependencies to generic php packages 
